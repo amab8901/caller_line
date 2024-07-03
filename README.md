@@ -25,4 +25,4 @@ The above code will return the following:
 called from <project path>/src/main.rs:10
 ```
 
-...where `<project path>` is a placeholder for the project path, and 10 is the line number of `call_this_function();`.
+...where `<project path>` is a placeholder for the project path, and `10` is the line number of `call_this_function();`.
