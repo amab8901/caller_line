@@ -22,5 +22,7 @@ fn main() {
 
 The above code will return the following:
 ```
-called from $HOME/project_path/src/main.rs:10
+called from <project path>/src/main.rs:10
 ```
+
+...where `<project path>` is a placeholder for the project path.
