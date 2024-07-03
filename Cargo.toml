@@ -1,0 +1,14 @@
+[package]
+name = "caller_line"
+version = "0.0.1"
+description = "Get the line from which the current function was called."
+repository = "https://github.com/amab8901/caller_line"
+documentation = "https://docs.rs/caller_line"
+authors = ["Amir Abdin <amab8901@protonmail.com>"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.75.0"
+
+[dependencies]
+backtrace = "0.3.73"
