@@ -4,8 +4,8 @@ pub fn caller_line() -> String {
     let (trace, curr_file, curr_line) = (Backtrace::new(), file!(), line!());
     let backtrace_symbol = backtrace_symbol(trace, curr_file, curr_line);
     let filename = filename(&backtrace_symbol);
-    let lineno = line_number(&backtrace_symbol);
-    let previous_line = format!("{filename}:{lineno}");
+    let line_number = line_number(&backtrace_symbol);
+    let previous_line = format!("{filename}:{line_number}");
 
     previous_line
 }
