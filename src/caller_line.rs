@@ -1,8 +1,8 @@
 use backtrace::{Backtrace, BacktraceFrame, BacktraceSymbol};
 
-pub fn caller_line() -> String {
+pub fn caller_line(steps: usize) -> String {
     let (trace, curr_file, curr_line) = (Backtrace::new(), file!(), line!());
-    let backtrace_symbol = backtrace_symbol(trace, curr_file, curr_line);
+    let backtrace_symbol = backtrace_symbol(trace, curr_file, curr_line, steps);
     let filename = filename(&backtrace_symbol);
     let line_number = line_number(&backtrace_symbol);
     let previous_line = format!("{filename}:{line_number}");
@@ -10,7 +10,12 @@ pub fn caller_line() -> String {
     previous_line
 }
 
-fn backtrace_symbol(trace: Backtrace, curr_file: &str, curr_line: u32) -> Option<BacktraceSymbol> {
+fn backtrace_symbol(
+    trace: Backtrace,
+    curr_file: &str,
+    curr_line: u32,
+    steps: usize,
+) -> Option<BacktraceSymbol> {
     let frames = trace.frames();
     let backtrace_symbol = frames
         .iter()
@@ -21,7 +26,7 @@ fn backtrace_symbol(trace: Backtrace, curr_file: &str, curr_line: u32) -> Option
                 .unwrap_or(true)
                 || s.lineno() != Some(curr_line)
         })
-        .nth(2)
+        .nth(1 + steps)
         .cloned();
     backtrace_symbol
 }

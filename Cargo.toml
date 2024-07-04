@@ -1,6 +1,6 @@
 [package]
 name = "caller_line"
-version = "1.0.1"
+version = "2.0.1"
 description = "Get the line from which the current function was called."
 repository = "https://github.com/amab8901/caller_line"
 documentation = "https://docs.rs/caller_line"
